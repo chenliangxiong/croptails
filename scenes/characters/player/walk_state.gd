@@ -1,7 +1,6 @@
 extends StateNode
-const gameInputEvents = preload("res://scripts/game_input_events.gd")
 
-@export var player: CharacterBody2D
+@export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var speed: int = 50
 
@@ -21,8 +20,9 @@ func _on_physics_process(_delta: float) -> void:
 		animated_sprite_2d.play("walk_left")
 	elif direction == Vector2.RIGHT:
 		animated_sprite_2d.play("walk_right")
-	else:
-		animated_sprite_2d.play("walk_front")
+
+	if direction != Vector2.ZERO:
+		player.player_direction = direction
 
 	player.velocity = direction * speed
 	player.move_and_slide()
@@ -33,6 +33,9 @@ func _on_unhandled_input(_event: InputEvent) -> void:
 
 
 func _on_next_transitions() -> void:
+	GameInputEvents.movement_input()
+	if !GameInputEvents.is_movement_input():
+		transition.emit("Idle")
 	pass
 
 
@@ -41,4 +44,4 @@ func _on_enter() -> void:
 
 
 func _on_exit() -> void:
-	pass
+	animated_sprite_2d.stop()

@@ -1,0 +1,20 @@
+@startuml
+
+Node <|-- CharacterBody2D
+Node <|-- StateNode
+Node <|-- StateMachineNode
+CharacterBody2D <|-- player
+StateNode <|-- walk_state
+StateNode <|-- idle_state
+
+class StateMachineNode {
+  initial_node_state StateNode
+  debug_state_physics_process bool
+  debug_state_transition_to bool
+}
+' note "This is a floating note" as N1
+
+' class Foo
+' note left: On last defined class
+
+@enduml
