@@ -1,5 +1,4 @@
 extends Sprite2D
-class_name SmallTree
 
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: DamageComponent = $DamageComponent
@@ -13,9 +12,8 @@ func _ready() -> void:
 
 func on_hurt(hit_damage: int) -> void:
 	damage_component.apply_damage(hit_damage)
-	material.set_shader_parameter("shake_intensity", 1)
-	print(material.get_shader_parameter("shake_intensity"))
-	await get_tree().create_timer(1.0).timeout
+	material.set_shader_parameter("shake_intensity", 2.0)
+	await get_tree().create_timer(0.6).timeout
 	material.set_shader_parameter("shake_intensity", 0)
 
 

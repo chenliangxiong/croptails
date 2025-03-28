@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0hduif6xwmtm"]
+[gd_scene load_steps=9 format=3 uid="uid://b0hduif6xwmtm"]
 
+[ext_resource type="Shader" uid="uid://vcgd8wpahij7" path="res://scenes/objects/shaker.gdshader" id="1_p6fsa"]
 [ext_resource type="Texture2D" uid="uid://b26f34bgojvh1" path="res://assets/game/objects/basic_grass_biom_things.png" id="1_u2bw6"]
 [ext_resource type="Script" uid="uid://dgo4fdiemsb1b" path="res://scenes/objects/tree/large_tree.gd" id="2_u2bw6"]
 [ext_resource type="PackedScene" uid="uid://cotxqywwdp8at" path="res://scenes/components/hurt_component.tscn" id="3_3k8rj"]
 [ext_resource type="PackedScene" uid="uid://clrd57kjtnxs8" path="res://scenes/components/damage_component.tscn" id="4_1xa2t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k8rj"]
+resource_local_to_scene = true
+shader = ExtResource("1_p6fsa")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bff3"]
 
@@ -11,6 +18,7 @@
 size = Vector2(22, 23)
 
 [node name="LargeTree" type="Sprite2D"]
+material = SubResource("ShaderMaterial_3k8rj")
 position = Vector2(0, -12)
 texture = ExtResource("1_u2bw6")
 region_enabled = true

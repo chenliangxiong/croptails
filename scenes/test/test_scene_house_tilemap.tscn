@@ -241,7 +241,7 @@ terrain_set_0/terrain_0/name = "Grass Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_l1rk5")
 
-[node name="TestSceneTilemap" type="Node2D"]
+[node name="TestSceneHouseTilemap" type="Node2D"]
 
 [node name="GameTileMap" type="Node2D" parent="."]
 

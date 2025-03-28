@@ -13,7 +13,7 @@ region_rect = Rect2(80, 32, 16, 16)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_p2mks")]
 position = Vector2(-2, 5)
-coollectable_name = "Log"
+coollectable_name = "log"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 position = Vector2(2, -5)
