@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://dx4ehlm5cwkh2"]
+[gd_scene load_steps=9 format=4 uid="uid://dffi357oi1hek"]
 
-[ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="1_1vmyk"]
-[ext_resource type="Texture2D" uid="uid://nx543g20brkm" path="res://assets/game/tilesets/grass.png" id="2_unowg"]
-[ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="3_unowg"]
-[ext_resource type="PackedScene" uid="uid://d0uovpc301d7t" path="res://scenes/characters/player/player.tscn" id="4_p1wtc"]
+[ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="1_w1nh1"]
+[ext_resource type="Texture2D" uid="uid://nx543g20brkm" path="res://assets/game/tilesets/grass.png" id="2_8yuq8"]
+[ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="3_kng7m"]
+[ext_resource type="PackedScene" uid="uid://d0uovpc301d7t" path="res://scenes/characters/player/player.tscn" id="4_d6cy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2mka"]
-texture = ExtResource("1_1vmyk")
+texture = ExtResource("1_w1nh1")
 0:0/animation_columns = 4
 0:0/animation_frame_0/duration = 0.2
 0:0/animation_frame_1/duration = 0.2
@@ -21,7 +21,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_j2mka")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1rk5"]
-texture = ExtResource("2_unowg")
+texture = ExtResource("2_8yuq8")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -258,17 +258,17 @@ tile_set = SubResource("TileSet_7apd7")
 [node name="Trees" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAFAAYABgAAAAAAAgAJAAgABgAAAAAAAwA=")
-tile_set = ExtResource("3_unowg")
+tile_set = ExtResource("3_kng7m")
 
 [node name="Overgrowth" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAOAAkAAAAFAAAAAAAQAAkAAAAGAAAAAAAOAAsAAAAIAAIAAAAQAAsAAAADAAAAAAASAAsAAAADAAIAAAATAAsAAAAEAAIAAAAUAAsAAAAFAAIAAAA=")
-tile_set = ExtResource("3_unowg")
+tile_set = ExtResource("3_kng7m")
 
 [node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
 tile_map_data = PackedByteArray("AAAOAAYAAAAFAAEAAAAOAAcAAAAGAAIAAAAQAAYAAAAGAAEAAAAQAAcAAAAHAAAAAAA=")
-tile_set = ExtResource("3_unowg")
+tile_set = ExtResource("3_kng7m")
 
-[node name="Player" parent="." instance=ExtResource("4_p1wtc")]
+[node name="Player" parent="." instance=ExtResource("4_d6cy6")]
 y_sort_enabled = true
 position = Vector2(242, 136)

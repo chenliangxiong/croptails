@@ -8,10 +8,18 @@ StateNode <|-- walk_state
 StateNode <|-- idle_state
 
 class StateMachineNode {
-  initial_node_state StateNode
-  debug_state_physics_process bool
-  debug_state_transition_to bool
+  StateNode initial_node_state
+  Dictionary node_states
+  function _ready
+  function transition_to
 }
+note left of StateMachineNode::_ready
+ 在此注册StateNode到所有的子节点中，
+ 每个子节点都连接transition_to
+end note
+note left of StateMachineNode::initial_node_state
+ 默认状态
+end note
 ' note "This is a floating note" as N1
 
 ' class Foo
