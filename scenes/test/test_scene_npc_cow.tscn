@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkwwivnbi62vi"]
+[gd_scene load_steps=11 format=4 uid="uid://c2yw8k0xojtlb"]
 
-[ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="1_a4sac"]
-[ext_resource type="Texture2D" uid="uid://nx543g20brkm" path="res://assets/game/tilesets/grass.png" id="2_gk5ja"]
-[ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="3_qibpl"]
-[ext_resource type="PackedScene" uid="uid://d0uovpc301d7t" path="res://scenes/characters/player/player.tscn" id="4_3xwja"]
-[ext_resource type="PackedScene" uid="uid://jpucx3yanrw" path="res://scenes/characters/chicken/chicken.tscn" id="4_gk5ja"]
+[ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="1_dl3ug"]
+[ext_resource type="Texture2D" uid="uid://nx543g20brkm" path="res://assets/game/tilesets/grass.png" id="2_vuxej"]
+[ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="3_xeko2"]
+[ext_resource type="PackedScene" uid="uid://d0uovpc301d7t" path="res://scenes/characters/player/player.tscn" id="4_1rpkx"]
+[ext_resource type="PackedScene" uid="uid://nm5rt5tdikoq" path="res://scenes/characters/cow/cow.tscn" id="5_dl3ug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2mka"]
-texture = ExtResource("1_a4sac")
+texture = ExtResource("1_dl3ug")
 0:0/animation_columns = 4
 0:0/animation_frame_0/duration = 0.2
 0:0/animation_frame_1/duration = 0.2
@@ -22,7 +22,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_j2mka")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1rk5"]
-texture = ExtResource("2_gk5ja")
+texture = ExtResource("2_vuxej")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -247,7 +247,7 @@ vertices = PackedVector2Array(346.156, 168.102, 280.781, 220.742, 216.156, 216.2
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(152, 105, 283, 89, 361, 169, 284, 231, 212, 226, 154, 173)])
 
-[node name="TestSceneNpcChicken" type="Node2D"]
+[node name="TestSceneNpcCow" type="Node2D"]
 y_sort_enabled = true
 
 [node name="GameTileMap" type="Node2D" parent="."]
@@ -263,38 +263,33 @@ tile_set = SubResource("TileSet_7apd7")
 
 [node name="Trees" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
-tile_set = ExtResource("3_qibpl")
+tile_set = ExtResource("3_xeko2")
 
 [node name="Overgrowth" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
-tile_set = ExtResource("3_qibpl")
+tile_set = ExtResource("3_xeko2")
 
 [node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
-tile_set = ExtResource("3_qibpl")
+tile_set = ExtResource("3_xeko2")
 
-[node name="Player" parent="." instance=ExtResource("4_3xwja")]
+[node name="Player" parent="." instance=ExtResource("4_1rpkx")]
 y_sort_enabled = true
-position = Vector2(242, 136)
+position = Vector2(117, 131)
 
-[node name="Chickens" type="Node" parent="."]
+[node name="Cows" type="Node" parent="."]
 
-[node name="Chicken" parent="Chickens" instance=ExtResource("4_gk5ja")]
-position = Vector2(272, 144)
+[node name="Cow" parent="Cows" instance=ExtResource("5_dl3ug")]
+position = Vector2(263, 183)
 
-[node name="Chicken2" parent="Chickens" instance=ExtResource("4_gk5ja")]
-position = Vector2(286, 180)
+[node name="Cow2" parent="Cows" instance=ExtResource("5_dl3ug")]
+position = Vector2(224, 197)
 
-[node name="Chicken3" parent="Chickens" instance=ExtResource("4_gk5ja")]
-position = Vector2(256, 180)
+[node name="Cow3" parent="Cows" instance=ExtResource("5_dl3ug")]
+position = Vector2(198, 154)
 
-[node name="Chicken4" parent="Chickens" instance=ExtResource("4_gk5ja")]
-position = Vector2(242, 198)
+[node name="Cow4" parent="Cows" instance=ExtResource("5_dl3ug")]
+position = Vector2(283, 132)
 
-[node name="Chicken5" parent="Chickens" instance=ExtResource("4_gk5ja")]
-position = Vector2(215, 178)
-
-[node name="Chicken6" parent="Chickens" instance=ExtResource("4_gk5ja")]
-position = Vector2(200, 157)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Cows"]
 navigation_polygon = SubResource("NavigationPolygon_gk5ja")
+navigation_layers = 2
