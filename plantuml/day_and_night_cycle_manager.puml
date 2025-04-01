@@ -1,0 +1,39 @@
+@startuml chopping
+
+DayAndNightManager <|-- DayAndNightPanel
+
+class DayAndNightManager {
+    int MINUTES_PER_DAY = 24*60
+    int MINUTES_PER_HOUR = 60
+    float GAME_MINUTE_DURATION = TAU / MINUTES_PER_DAY
+
+    float game_speed
+    int initial_day
+    int initial_hour
+    int initial_minute
+
+    float time
+    int current_minute
+    int current_day
+
+    signal game_time(float time)
+    signal time_tick(int day, int hour, int minute)
+    signal time_tick_day(int day)
+
+    function _ready()
+    function _process()
+    function set_inital_time()
+    function recalculate_time()
+}
+
+class DayAndNightPanel {
+    int normal_speed
+    int fast_speed
+    int cheetah_speed
+    function _ready()
+    function on_time_tick()
+    function _on_normal_speed_button_pressed()
+    function _on_fast_speed_button_pressed()
+    function _on_cheetah_speed_button_pressed()
+}
+@enduml

@@ -1,0 +1,46 @@
+@startuml chopping
+
+Player <|-- HitComponent
+SmallTree <|-- HurtComponent
+SmallTree <|-- DamageComponent
+HurtComponent <|-- HurtComponentCollisionShape2D
+HitComponent <|-- HitComponentCollisionShape2D
+class SmallTree {
+  LogScene log_scene
+  function on_hurt
+}
+note left of SmallTree::on_hurt
+ 连接触发器hurt，max_damage_reached的方法，
+ 然后调用apply_damage，在apply_damage满足条
+ 件后触发on_max_damage_reached
+end note
+class DamageComponent {
+  signal max_damage_reached
+  int max_damage
+  int current_damage
+  function apply_damage
+}
+note left of DamageComponent::apply_damage
+ 在此进行伤害计算
+end note
+class HurtComponent {
+  signal hurt
+  function _on_area_entered
+}
+note left of HurtComponent::_on_area_entered
+ 拿到HitComponent的hit_damage，
+ 触发器触发
+end note 
+
+class HurtComponentCollisionShape2D {
+}
+class HitComponent {
+  DataTypes current_tool
+  int hit_damage
+}
+' note "This is a floating note" as N1
+
+' class Foo
+' note left: On last defined class
+
+@enduml
