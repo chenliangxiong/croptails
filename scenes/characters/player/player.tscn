@@ -401,21 +401,19 @@ radius = 4.0
 radius = 3.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -10)
+position = Vector2(0, -3)
 collision_layer = 2
 script = ExtResource("1_6avc5")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(7.62939e-06, -3.99999)
 scale = Vector2(0.916667, 0.916667)
 sprite_frames = SubResource("SpriteFrames_omk8d")
-animation = &"chopping_back"
-autoplay = "idle_back"
-frame = 1
-frame_progress = 1.0
+animation = &"idle_front"
+autoplay = "idle_front"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(1.52588e-05, -0.999985)
 shape = SubResource("CircleShape2D_kghjy")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -443,13 +441,14 @@ script = ExtResource("8_xuses")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite")
 
-[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d", "hit_component_collision_shape")]
 script = ExtResource("9_42irl")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape2D")
 
 [node name="HitComponent" parent="." instance=ExtResource("10_3xnwo")]
-position = Vector2(0, 14)
+position = Vector2(1.52588e-05, 7.00002)
 
 [node name="HitComponentCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(3, -22)
