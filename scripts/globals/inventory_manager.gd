@@ -1,5 +1,5 @@
 extends Node
-class_name InventoryManager
+class_name InventoryManagement
 
 var inventory: Dictionary = Dictionary()
 

@@ -1,0 +1,61 @@
+@startuml chopping
+NodeDataResource <|-- SceneDataResource
+
+class SaveGameManager {
+  function save_game()
+
+}
+note left of SaveGameManager::save_game
+ 1.按下保存按钮后最先触发
+end note
+
+class SaveLevelDataComponent {
+  function save_game()
+  function save_node_data()
+}
+note left of SaveLevelDataComponent::save_game
+ 2.
+end note
+
+class SaveDataComponent {
+  Resource save_data_resource
+  function _save_game()
+}
+note left of SaveDataComponent::_save_game
+ 3
+end note
+
+class SceneDataResource {
+  function _save_data()
+  function _load_data()
+}
+note right of SceneDataResource::_save_data
+ 3
+end note
+
+class TileMapLayerResource {
+  function _save_game()
+  function _load_data()
+}
+note left of TileMapLayerResource::_save_game
+ x
+end note
+
+class SaveGameDataResource {
+  function save_node_data()
+  function save_game()
+  function load_game()
+}
+note left of SaveGameDataResource::save_game
+ x
+end note
+
+
+class NodeDataResource {
+  function _save_data()
+  function _load_data()
+}
+note right of NodeDataResource::_save_data
+ x
+end note
+@enduml

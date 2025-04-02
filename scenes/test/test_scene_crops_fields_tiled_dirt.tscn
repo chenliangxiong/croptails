@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cc2sa1w64f2ya"]
+[gd_scene load_steps=18 format=4 uid="uid://cc2sa1w64f2ya"]
 
 [ext_resource type="PackedScene" uid="uid://bow7jboobcvf8" path="res://scenes/components/day_night_cycle_component.tscn" id="1_ie6nr"]
 [ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="2_x0c5j"]
@@ -7,7 +7,12 @@
 [ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="4_ie6nr"]
 [ext_resource type="PackedScene" uid="uid://ciaxuacdrgr5v" path="res://scenes/ui/game_screen.tscn" id="5_qkd35"]
 [ext_resource type="PackedScene" uid="uid://cqmys2juqm4bg" path="res://scenes/components/field_cursor_component.tscn" id="6_y8d3n"]
+[ext_resource type="PackedScene" uid="uid://dml204dst3oj4" path="res://scenes/components/save_data_component.tscn" id="8_hdyae"]
 [ext_resource type="PackedScene" uid="uid://c73ootx23w4yk" path="res://scenes/components/crops_cursor_component.tscn" id="8_x0c5j"]
+[ext_resource type="PackedScene" uid="uid://bjisfnt2471pb" path="res://scenes/components/save_level_data_component.tscn" id="9_1k6im"]
+[ext_resource type="Resource" uid="uid://bqnnep3lr1sa7" path="res://resources/tilemap_layer_resource.tres" id="9_3gtan"]
+[ext_resource type="Script" uid="uid://ch68tgy2h3a2t" path="res://scenes/components/save_level_data_component.gd" id="10_qkd35"]
+[ext_resource type="PackedScene" uid="uid://bv4ib600gos2" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="11_qkd35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2mka"]
 texture = ExtResource("2_x0c5j")
@@ -248,6 +253,11 @@ sources/0 = SubResource("TileSetAtlasSource_l1rk5")
 [node name="TestSceneCropsFiledsTiledDirt" type="Node2D"]
 y_sort_enabled = true
 
+[node name="TestSceneSaveDataManagerComponent" parent="." instance=ExtResource("11_qkd35")]
+
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("9_1k6im")]
+script = ExtResource("10_qkd35")
+
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_ie6nr")]
 visible = false
 
@@ -265,10 +275,11 @@ tile_set = SubResource("TileSet_7apd7")
 y_sort_enabled = true
 tile_set = ExtResource("4_ie6nr")
 
+[node name="SaveDataComponent" parent="GameTileMap/TiledSoil" instance=ExtResource("8_hdyae")]
+save_data_resource = ExtResource("9_3gtan")
+
 [node name="Player" parent="." instance=ExtResource("4_1k6im")]
 position = Vector2(143, 135)
-
-[node name="GameScreen" parent="." instance=ExtResource("5_qkd35")]
 
 [node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tiled_soil_tilemap_layer") instance=ExtResource("6_y8d3n")]
 grass_tilemap_layer = NodePath("../GameTileMap/Grass")
@@ -280,3 +291,5 @@ tilled_soil_tilemap_layer = NodePath("../GameTileMap/TiledSoil")
 
 [node name="CropFields" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="GameScreen" parent="." instance=ExtResource("5_qkd35")]

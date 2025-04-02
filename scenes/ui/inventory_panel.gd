@@ -8,10 +8,10 @@ extends PanelContainer
 @onready var milk_label: Label = $MarginContainer/VBoxContainer/Milk/MilkLabel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	InventoryManagement.inventory_changed.connect(on_inventory_changed)
+	InventoryManager.inventory_changed.connect(on_inventory_changed)
 
 func on_inventory_changed():
-	var inventory: Dictionary = InventoryManagement.inventory
+	var inventory: Dictionary = InventoryManager.inventory
 
 	if inventory.has("log"):
 		log_label.text = str(inventory["log"])
