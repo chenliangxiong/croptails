@@ -7,7 +7,7 @@ Marlow: Here are some seeds to grow some crops.
 
 - Take crop seeds
 	Teemo: Yeah, I can grow crops.
-	do GameDialogueManager.action_give_crop_seeds()
+	do Chest.on_feed_the_animals()
 - No, I don't want them.
 	Teemo: I'm not ready to grow my farm yet.
 => END
