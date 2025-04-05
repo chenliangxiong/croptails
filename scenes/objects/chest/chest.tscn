@@ -1,10 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://b66wuo18bw3p1"]
+[gd_scene load_steps=21 format=3 uid="uid://b66wuo18bw3p1"]
 
 [ext_resource type="Texture2D" uid="uid://drwpc62shua3" path="res://assets/game/objects/chest.png" id="1_8pawo"]
 [ext_resource type="Script" uid="uid://d4iguhn7aonvx" path="res://scenes/objects/chest/chest.gd" id="1_umtkn"]
 [ext_resource type="PackedScene" uid="uid://bywrk70ma8gqw" path="res://scenes/components/interactable_component.tscn" id="2_rqprm"]
 [ext_resource type="PackedScene" uid="uid://u4ahxhokje7b" path="res://scenes/components/interactable_label_component.tscn" id="3_umtkn"]
 [ext_resource type="PackedScene" uid="uid://cdwwcvge83kv2" path="res://scenes/components/feed_component.tscn" id="4_rqprm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umtkn"]
+size = Vector2(14, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayji6"]
 atlas = ExtResource("1_8pawo")
@@ -106,8 +109,13 @@ radius = 24.3311
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ayji6"]
 
-[node name="Chest" type="Node2D"]
+[node name="Chest" type="StaticBody2D"]
 script = ExtResource("1_umtkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_umtkn")
+debug_color = Color(0.404746, 0.518201, 0.840894, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3kyph")
@@ -118,6 +126,7 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
 shape = SubResource("CircleShape2D_hpcba")
+debug_color = Color(0.705062, 0.458221, 0.469528, 0.42)
 
 [node name="RewardMarker" type="Marker2D" parent="."]
 position = Vector2(20, 17)
@@ -132,4 +141,4 @@ offset_bottom = -31.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
 shape = SubResource("CircleShape2D_ayji6")
-debug_color = Color(0.310072, 0.612655, 0.383051, 0.42)
+debug_color = Color(0.234715, 0.55428, 0.841439, 0.42)
