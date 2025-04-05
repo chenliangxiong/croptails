@@ -202,3 +202,5 @@ autoplay = "emote_1_idle"
 [node name="EmoteIdleTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[connection signal="timeout" from="EmoteIdleTimer" to="." method="_on_emote_idle_timer_timeout"]

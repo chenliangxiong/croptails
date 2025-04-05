@@ -12,3 +12,10 @@ func add_collectable(collectable_name: String):
 	else:
 		inventory[collectable_name] += 1
 	inventory_changed.emit()
+
+func remove_collectable(collectable_name: String):
+	if inventory[collectable_name] == null:
+		inventory[collectable_name] = 0
+	elif inventory[collectable_name] > 0:
+		inventory[collectable_name] -= 1
+	inventory_changed.emit()

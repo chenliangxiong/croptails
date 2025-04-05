@@ -14,6 +14,7 @@ frame = 5
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_7itdg")]
 y_sort_enabled = true
+collision_layer = 160
 coollectable_name = "corn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
