@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://dffi357oi1hek"]
+[gd_scene load_steps=17 format=4 uid="uid://dffi357oi1hek"]
 
 [ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="1_w1nh1"]
 [ext_resource type="Texture2D" uid="uid://nx543g20brkm" path="res://assets/game/tilesets/grass.png" id="2_8yuq8"]
 [ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="3_kng7m"]
+[ext_resource type="PackedScene" uid="uid://2kpv3ee1kyec" path="res://scenes/objects/tree/small_tree.tscn" id="4_77dtp"]
 [ext_resource type="PackedScene" uid="uid://d0uovpc301d7t" path="res://scenes/characters/player/player.tscn" id="4_d6cy6"]
+[ext_resource type="Shader" uid="uid://vcgd8wpahij7" path="res://scenes/objects/shaker.gdshader" id="5_3bfww"]
 [ext_resource type="PackedScene" uid="uid://c32odgffpsuyj" path="res://scenes/objects/plants/corn.tscn" id="5_kng7m"]
 [ext_resource type="PackedScene" uid="uid://bariuiaif358k" path="res://scenes/objects/plants/tomato.tscn" id="6_d6cy6"]
+[ext_resource type="PackedScene" uid="uid://b0hduif6xwmtm" path="res://scenes/objects/tree/large_tree.tscn" id="6_dpwn3"]
 [ext_resource type="PackedScene" uid="uid://ciaxuacdrgr5v" path="res://scenes/ui/game_screen.tscn" id="7_d6cy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2mka"]
@@ -244,6 +247,18 @@ terrain_set_0/terrain_0/name = "Grass Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_l1rk5")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyboc"]
+resource_local_to_scene = true
+shader = ExtResource("5_3bfww")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8173x"]
+resource_local_to_scene = true
+shader = ExtResource("5_3bfww")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
 [node name="TestSceneTilemapLayerYSort" type="Node2D"]
 y_sort_enabled = true
 
@@ -272,9 +287,19 @@ tile_set = ExtResource("3_kng7m")
 tile_map_data = PackedByteArray("AAAOAAYAAAAFAAEAAAAOAAcAAAAGAAIAAAAQAAYAAAAGAAEAAAAQAAcAAAAHAAAAAAA=")
 tile_set = ExtResource("3_kng7m")
 
+[node name="SmallTree" parent="GameTileMap" instance=ExtResource("4_77dtp")]
+material = SubResource("ShaderMaterial_jyboc")
+position = Vector2(201, 172)
+
+[node name="LargeTree" parent="GameTileMap" instance=ExtResource("6_dpwn3")]
+material = SubResource("ShaderMaterial_8173x")
+position = Vector2(198, 135)
+
 [node name="Player" parent="." instance=ExtResource("4_d6cy6")]
 y_sort_enabled = true
 position = Vector2(231, 156)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Crops" type="Node2D" parent="."]
 y_sort_enabled = true

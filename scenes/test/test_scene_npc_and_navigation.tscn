@@ -282,9 +282,10 @@ tile_set = ExtResource("3_j5l77")
 
 [node name="Player" parent="." instance=ExtResource("4_3i5wx")]
 y_sort_enabled = true
-position = Vector2(262, 254)
+position = Vector2(391, 228)
 
-[node name="Chickens" type="Node" parent="."]
+[node name="Chickens" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Chicken" parent="Chickens" instance=ExtResource("5_cxbc1")]
 position = Vector2(134, 123)
@@ -325,13 +326,14 @@ position = Vector2(129, 166)
 [node name="Chicken12" parent="Chickens" instance=ExtResource("5_cxbc1")]
 position = Vector2(298, 174)
 
-[node name="Cows" type="Node" parent="."]
+[node name="Cows" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Cow" parent="Cows" instance=ExtResource("6_i443c")]
 position = Vector2(378, 125)
 
 [node name="Cow2" parent="Cows" instance=ExtResource("6_i443c")]
-position = Vector2(388, 216)
+position = Vector2(396, 221)
 
 [node name="Cow3" parent="Cows" instance=ExtResource("6_i443c")]
 position = Vector2(451, 210)

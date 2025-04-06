@@ -65,7 +65,7 @@ animations = [{
 radius = 4.0
 
 [node name="Chicken" type="CharacterBody2D"]
-position = Vector2(0, -6)
+y_sort_enabled = true
 collision_layer = 64
 script = ExtResource("1_r6a33")
 
