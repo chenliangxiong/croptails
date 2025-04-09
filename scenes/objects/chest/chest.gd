@@ -23,7 +23,7 @@ var is_chest_open: bool
 func _ready():
 	interactable_component.interactable_actived.connect(on_interactable_activated)
 	interactable_component.interactable_deactived.connect(on_interactable_deactivated)
-	
+
 	interactable_component.hide()
 	interactable_label_component.hide()
 
@@ -52,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			is_chest_open = true
 
 			var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
-			get_tree().current_scene.add_child(balloon)
+			get_tree().root.add_child(balloon)
 			balloon.start(load("res://dialogue/conversations/chest.dialogue"), dialogue_start_command)
 
 func on_feed_the_animals():
@@ -64,7 +64,7 @@ func trigger_feed_harvest(inventory_item: String, scene: Resource):
 	var inventory: Dictionary = InventoryManager.inventory
 	if !inventory.has(inventory_item):
 		return
-		
+
 	var inventory_item_count = inventory[inventory_item]
 	for index in inventory_item_count:
 		var harvest_instance = scene.instantiate() as Node2D

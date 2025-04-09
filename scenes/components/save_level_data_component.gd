@@ -38,7 +38,7 @@ func load_game():
 
 	if !FileAccess.file_exists(save_game_path):
 		return
-	
+
 	game_data_resource = ResourceLoader.load(save_game_path)
 
 	if game_data_resource == null:

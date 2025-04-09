@@ -1,11 +1,15 @@
-[gd_scene load_steps=21 format=4 uid="uid://ho6427nwycxt"]
+[gd_scene load_steps=25 format=4 uid="uid://ho6427nwycxt"]
 
+[ext_resource type="PackedScene" uid="uid://bjisfnt2471pb" path="res://scenes/components/save_level_data_component.tscn" id="1_bahl2"]
+[ext_resource type="PackedScene" uid="uid://cjghlkwtqbexn" path="res://audio/music/on_the_farm_music.tscn" id="1_np2pn"]
 [ext_resource type="Texture2D" uid="uid://b8rnasmexlxus" path="res://assets/game/tilesets/water.png" id="1_nsrm0"]
 [ext_resource type="Texture2D" uid="uid://nx543g20brkm" path="res://assets/game/tilesets/grass.png" id="2_x42e6"]
 [ext_resource type="TileSet" uid="uid://bxc5q1w136dvd" path="res://Tilesets/game_tile_set.tres" id="3_6761a"]
 [ext_resource type="PackedScene" uid="uid://bbuln502yo2ut" path="res://scenes/houses/large_house.tscn" id="4_sk5k4"]
+[ext_resource type="PackedScene" uid="uid://dml204dst3oj4" path="res://scenes/components/save_data_component.tscn" id="5_np2pn"]
 [ext_resource type="PackedScene" uid="uid://cy3suh7rhn3uw" path="res://scenes/houses/medium_house.tscn" id="5_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://dtq5nbi3n8x0l" path="res://scenes/houses/small_house.tscn" id="6_s8va5"]
+[ext_resource type="Resource" uid="uid://bqnnep3lr1sa7" path="res://resources/tilemap_layer_resource.tres" id="6_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://cqmys2juqm4bg" path="res://scenes/components/field_cursor_component.tscn" id="7_excbq"]
 [ext_resource type="PackedScene" uid="uid://jpucx3yanrw" path="res://scenes/characters/chicken/chicken.tscn" id="7_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://c73ootx23w4yk" path="res://scenes/components/crops_cursor_component.tscn" id="8_iav0o"]
@@ -266,6 +270,10 @@ source_geometry_mode = 2
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
 
+[node name="OnTheFarmMusic" parent="." instance=ExtResource("1_np2pn")]
+
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("1_bahl2")]
+
 [node name="GameTileMap" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -279,6 +287,9 @@ tile_set = SubResource("TileSet_dga24")
 
 [node name="TiledSoil" type="TileMapLayer" parent="GameTileMap"]
 tile_set = ExtResource("3_6761a")
+
+[node name="SaveDataComponent" parent="GameTileMap/TiledSoil" instance=ExtResource("5_np2pn")]
+save_data_resource = ExtResource("6_v6ha0")
 
 [node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
 tile_map_data = PackedByteArray("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")
